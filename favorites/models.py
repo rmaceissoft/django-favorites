@@ -52,6 +52,14 @@ class FavoriteManager(models.Manager):
         favorite.save()
         return favorite
 
+    def remove_favorite(self, obj, user):
+        """
+        removed favorite object for user
+        """
+        content_type = ContentType.objects.get_for_model(obj)
+        self.get_query_set().filter(content_type=content_type, object_id=obj.id, user=user).delete()
+
+
 class Favorite(models.Model):
     user = models.ForeignKey(User)
     content_type = models.ForeignKey(ContentType)
