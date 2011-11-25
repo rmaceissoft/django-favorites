@@ -1,4 +1,5 @@
 from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name = 'favorites',
@@ -6,7 +7,7 @@ setup(
     description = 'Generic favorites application for Django',
     author = 'Andrew Gwozdziewycz',
     author_email = 'git@apgwoz.com',
-    packages = ['favorites'],
+    packages=find_packages(exclude=['ez_setup', 'examples', 'tests', 'docs']),
     classifiers = ['Development Status :: 4 - Beta',
                    'Environment :: Web Environment',
                    'Framework :: Django',
